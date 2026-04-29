@@ -1,0 +1,135 @@
+/* DYNK Governance — design tokens */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand */
+  --dynk-orange: #FF7A1A;
+  --dynk-orange-deep: #E55A00;
+  --dynk-orange-soft: #FFB088;
+
+  /* Ink (near-black like the email template + screens) */
+  --dynk-ink: #0F0F11;
+  --dynk-ink-2: #1A1A1A;
+  --dynk-ink-3: #2C2C30;
+
+  /* Neutrals */
+  --dynk-fg-1: #1A1A1A;
+  --dynk-fg-2: #5C5E68;
+  --dynk-fg-3: #A0A3B1;
+  --dynk-line: #ECEDF4;
+  --dynk-line-strong: #D2D4E0;
+
+  --dynk-bg: #E8EBF4;
+  --dynk-card: #FFFFFF;
+  --dynk-card-2: #F5F6FA;
+
+  /* Semantic */
+  --dynk-success: #2DBE6C;     /* gains green */
+  --dynk-success-deep: #14893E;
+  --dynk-danger: #C8252B;      /* sell red */
+  --dynk-warning: #F0A93B;
+  --dynk-info: #3973F2;
+
+  /* Type */
+  --font-display: 'Chakra Petch', 'Orbitron', system-ui, sans-serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.7) inset, 0 6px 18px rgba(20, 20, 40, 0.06), 0 1px 2px rgba(20, 20, 40, 0.04);
+  --shadow-pop: 0 24px 60px rgba(20,20,40,0.18), 0 4px 14px rgba(20,20,40,0.08);
+  --shadow-pill: 0 6px 20px rgba(15,15,17,0.18);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--dynk-fg-1);
+  -webkit-font-smoothing: antialiased;
+  background: #14171F;
+}
+
+/* The signature DYNK background — soft peach→lilac mesh gradient */
+.dynk-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(140% 80% at 78% 12%, #F8C9A5 0%, rgba(248,201,165,0) 55%),
+    radial-gradient(120% 70% at 12% 8%, #FFE0CB 0%, rgba(255,224,203,0) 50%),
+    radial-gradient(140% 80% at 90% 92%, #C7D2EE 0%, rgba(199,210,238,0) 55%),
+    radial-gradient(160% 90% at 8% 90%, #DCDFEB 0%, rgba(220,223,235,0) 60%),
+    linear-gradient(180deg, #F0E5DA 0%, #E5E6EE 50%, #DBDDE8 100%);
+}
+
+/* Subtle warm "lens flare" used on hero/welcome screens */
+.dynk-bg-flare::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 75% 30%, rgba(255,200,150,0.55) 0%, rgba(255,200,150,0) 60%),
+    radial-gradient(50% 30% at 30% 70%, rgba(220,200,255,0.4) 0%, rgba(220,200,255,0) 60%);
+  pointer-events: none;
+}
+
+/* Display headings */
+.h-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--dynk-ink);
+}
+
+/* Tabular numbers for stats/counts */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Reusable card */
+.dynk-card {
+  background: var(--dynk-card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Pill button — primary (dark) */
+.btn-primary {
+  background: var(--dynk-ink);
+  color: #fff;
+  border: 0;
+  border-radius: var(--r-pill);
+  padding: 16px 22px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: var(--shadow-pill);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn-primary:active { transform: scale(0.98); background: #000; }
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--dynk-line-strong);
+  color: var(--dynk-ink);
+  border-radius: var(--r-pill);
+  padding: 14px 20px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-secondary:active { background: rgba(0,0,0,0.04); }
+
+/* Hide scrollbars on internal scroll regions */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
